@@ -1,25 +1,35 @@
 package bms.system.Models;
 
+import bms.system.Enums.SeatStatus;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+import java.util.Date;
 
-@Data
+@Getter
 @Entity
-@EqualsAndHashCode(callSuper = false)
-@Table(name ="SHOW_SEATS")
-public class ShowSeat {
+public class ShowSeat extends BaseModel {
+
+    private Double price;
+    @Enumerated(EnumType.STRING)
+    private SeatStatus status;
+    
+    @ManyToOne
+    @JoinColumn(name="seat_id")
+    private Seat seat;
 
     @ManyToOne
-    private HallSeat hallSeat;
-
-    @ManyToOne
-    private Booking booking;
-    private boolean occupied;
-
-    @ManyToOne
+    @JoinColumn(name = "show_id")
     private Show show;
+
+    public ShowSeat(Long id, Date createdAt, Date updatedAt,Double price, SeatStatus status,Seat seat)
+    {
+    super(id,createdAt,updatedAt);
+    this.price=price;
+    this.status=status;
+    this.seat=seat;
+}
 }
