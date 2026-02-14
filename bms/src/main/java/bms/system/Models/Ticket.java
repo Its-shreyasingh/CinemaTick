@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.*;
 
 import bms.system.Enums.TicketStatus;
+import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
+@Entity
 public class Ticket extends BaseModel {
     @ManyToOne
     private Show show;
@@ -19,6 +22,7 @@ public class Ticket extends BaseModel {
 
     private Double amount;
     private TicketStatus status;
+    @OneToMany(mappedBy="ticket")
     private List<Payment> payment=new ArrayList<>();
 
     public Ticket(Long id,Date createdAt,Date updatedAt,Show show,User user,List<ShowSeat> seats,Double amount,TicketStatus status,List<Payment> payment)

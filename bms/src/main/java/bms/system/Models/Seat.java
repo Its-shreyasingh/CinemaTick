@@ -6,26 +6,32 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.*;
 
 @Getter
+@Setter
 @Entity
+@Table(name = "seats")
 public class Seat extends BaseModel {
     
-    private final Integer row;
-    private final Integer column;
+    private  Integer rowNumber;
+    private  Integer columnNumber;
     @ManyToOne
     @JoinColumn(name = "hall_id")
     private Hall hall;
     @Enumerated(EnumType.STRING)
-    private final SeatType type;
+    private  SeatType type;
 
     public Seat(Long id,Date createdAt,Date updatedAt,Integer row,Integer column,SeatType type,Hall hall)
     {
         super(id,createdAt,updatedAt);
-        this.row=row;
-        this.column=column;
+        this.rowNumber=rowNumber;
+        this.columnNumber=columnNumber;
         this.type=type;
         this.hall=hall;
     }

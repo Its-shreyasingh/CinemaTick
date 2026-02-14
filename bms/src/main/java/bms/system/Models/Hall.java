@@ -1,7 +1,11 @@
 package bms.system.Models;
 
 import java.util.*;
+
+import bms.system.Enums.MovieFeature;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -23,7 +27,11 @@ public class Hall extends BaseModel {
     @OneToMany(mappedBy = "hall")
     private List<Seat> seats=new ArrayList<>();
 
+    @Enumerated
+    @ElementCollection
+    private List<MovieFeature> features=new ArrayList<>();
     @ManyToOne
+
     @JoinColumn(name="theater_id")
     private Theater theater;
 

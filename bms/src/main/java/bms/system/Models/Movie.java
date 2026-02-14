@@ -15,9 +15,11 @@ public class Movie extends BaseModel{
     private String name;
     private Integer duration;
     private Double rating;
+
     @Enumerated
     @ElementCollection
     private List<Language> languages=new ArrayList<>();
+    
     @Enumerated
     @ElementCollection
     private List<MovieFeature> features=new ArrayList<>();

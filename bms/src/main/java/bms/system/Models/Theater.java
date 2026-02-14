@@ -22,7 +22,7 @@ public class Theater extends BaseModel {
     @ManyToOne
     @JoinColumn(name="city_id")
     private City city;
-
+    @ElementCollection
     @OneToMany(mappedBy = "theater")
     private List<Hall> halls=new ArrayList<>();
 
