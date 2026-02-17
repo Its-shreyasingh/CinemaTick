@@ -25,14 +25,4 @@ public class Ticket extends BaseModel {
     @OneToMany(mappedBy="ticket")
     private List<Payment> payment=new ArrayList<>();
 
-    public Ticket(Long id,Date createdAt,Date updatedAt,Show show,User user,List<ShowSeat> seats,Double amount,TicketStatus status,List<Payment> payment)
-    {
-        super(id,createdAt,updatedAt);
-        this.show=show;
-        this.user=user;
-        this.seats=seats;
-        this.amount=amount;
-        this.status=status;
-        this.payment=payment;
-    }
 }

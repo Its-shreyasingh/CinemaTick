@@ -4,17 +4,23 @@ import java.util.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.*;
 
 @Getter
 @Entity
-@Table(name = "users")
+@NoArgsConstructor
+@Table(name = "user")
 public class User extends BaseModel {
     private String name;
     private String email;
+    private String password;
+    private Long id;
 
-    public User(Long id,Date createdAt,Date updatedAt,String email)
+    public User(String name,String email,String password,Long id)
     {
-        super(id,createdAt,updatedAt);
+        this.name=name;
         this.email=email;
+        this.password=password;
+        this.id=id;
     }
 }

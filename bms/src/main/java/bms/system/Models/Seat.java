@@ -27,12 +27,5 @@ public class Seat extends BaseModel {
     @Enumerated(EnumType.STRING)
     private  SeatType type;
 
-    public Seat(Long id,Date createdAt,Date updatedAt,Integer row,Integer column,SeatType type,Hall hall)
-    {
-        super(id,createdAt,updatedAt);
-        this.rowNumber=rowNumber;
-        this.columnNumber=columnNumber;
-        this.type=type;
-        this.hall=hall;
-    }
+
 }

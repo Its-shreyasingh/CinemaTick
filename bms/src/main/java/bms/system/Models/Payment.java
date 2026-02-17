@@ -14,24 +14,14 @@ import lombok.Getter;
 @Entity
 public class Payment extends BaseModel {
 
-    private final String referenceID;
-    private final Double amount;
+    private  String referenceID;
+    private  Double amount;
     @Enumerated
-    private final PaymentMode mode;
+    private  PaymentMode mode;
     @Enumerated
-    private final PaymentStatus status;
+    private  PaymentStatus status;
     @ManyToOne
     @JoinColumn(name="ticket_id")
     private Ticket ticket;
 
-
-    public Payment(Long id,Date createdAt,Date updatedAt,String referenceId,Double amount,PaymentMode mode,PaymentStatus status,Ticket ticket)
-    {
-        super(id, createdAt, updatedAt);
-        this.referenceID=referenceId;
-        this.amount=amount;
-        this.mode=mode;
-        this.status=status;
-        this.ticket=ticket;
-    }
 }

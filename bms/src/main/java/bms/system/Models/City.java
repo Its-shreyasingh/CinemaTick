@@ -19,9 +19,5 @@ public class City extends BaseModel {
     @OneToMany(mappedBy = "city")
     private List<Theater> theaters=new ArrayList<>();
 
-    public City(Long id, Date createdAt, Date updatedAt,String name)
-    {
-        super(id,createdAt,updatedAt);
-        this.name=name;
-    }
+
 }

@@ -35,9 +35,5 @@ public class Hall extends BaseModel {
     @JoinColumn(name="theater_id")
     private Theater theater;
 
-    public Hall(Long id,Date createdAt,Date updatedAt,Integer hallNumber)
-    {
-        super(id,createdAt,updatedAt);
-        this.hallNumber=hallNumber;
-    }
+
 }

@@ -9,4 +9,4 @@ public class bmsApplication {
     {
         SpringApplication.run(bmsApplication.class,args);
     }
-}
+} 

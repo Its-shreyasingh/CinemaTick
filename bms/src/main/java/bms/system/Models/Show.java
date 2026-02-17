@@ -41,15 +41,5 @@ public class Show extends BaseModel {
     @OneToMany(mappedBy = "show")
     private List<ShowSeat> showSeats=new ArrayList<>();
 
-    public Show(Long id,Date createdAt,Date updatedAt,Movie movie,Language language,Date startTime,Date endTime,Hall hall,List<MovieFeature> movieFeatures,List<ShowSeat> showSeats)
-    {
-        super(id,createdAt,updatedAt);
-        this.movie=movie;
-        this.language=language;
-        this.startTime=startTime;
-        this.endTime=endTime;
-        this.hall=hall;
-        this.movieFeatures=movieFeatures;
-        this.showSeats=showSeats;
-    }
+
 }

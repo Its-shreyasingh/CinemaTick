@@ -29,12 +29,4 @@ public class Theater extends BaseModel {
     @OneToMany
     private List<Show> shows=new ArrayList<>();
 
-    public Theater(Long id,Date createdAt,Date updatedAt,String name,String address,List<Hall> halls,List<Show> shows)
-    {
-        super(id,createdAt,updatedAt);
-        this.name=name;
-        this.address=address;
-        this.halls=halls;
-        this.shows=shows;
-    }
 }

@@ -11,7 +11,7 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 
 @MappedSuperclass
-@AllArgsConstructor
+
 public abstract class BaseModel
 {
     @Id
