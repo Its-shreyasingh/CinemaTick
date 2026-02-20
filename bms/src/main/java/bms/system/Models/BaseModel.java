@@ -1,17 +1,16 @@
 package bms.system.Models;
 import java.util.*;
 
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import jakarta.persistence.*;
+import lombok.Getter;
 
 @MappedSuperclass
-
+@Getter
+@EntityListeners(AuditingEntityListener.class)
 public abstract class BaseModel
 {
     @Id
@@ -19,8 +18,10 @@ public abstract class BaseModel
     private Long id;
 
     @CreatedDate
+    @Temporal(value=TemporalType.TIMESTAMP)
     private Date createdAt;
 
     @LastModifiedDate
+    @Temporal(value=TemporalType.TIMESTAMP)
     private Date updatedAt;
 }
