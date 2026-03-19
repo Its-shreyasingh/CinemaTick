@@ -8,4 +8,5 @@ public class MovieResponse {
     private String name;
     private String genre;
     private int duration;
+    private String language;
 }
