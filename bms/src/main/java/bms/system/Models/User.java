@@ -2,6 +2,7 @@ package bms.system.Models;
 import java.util.*;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.*;
@@ -16,11 +17,7 @@ public class User extends BaseModel {
     private String password;
     private Long id;
 
-    public User(String name,String email,String password,Long id)
-    {
-        this.name=name;
-        this.email=email;
-        this.password=password;
-        this.id=id;
-    }
+    @OneToMany(mappedBy = "user")
+    private List<Ticket> tickets;
+
 }

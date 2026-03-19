@@ -17,6 +17,9 @@ import lombok.Setter;
 @Entity
 @Table(name="theaters")
 public class Theater extends BaseModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String address;
     @ManyToOne
@@ -25,8 +28,5 @@ public class Theater extends BaseModel {
     @ElementCollection
     @OneToMany(mappedBy = "theater")
     private List<Hall> halls=new ArrayList<>();
-
-    @OneToMany
-    private List<Show> shows=new ArrayList<>();
 
 }

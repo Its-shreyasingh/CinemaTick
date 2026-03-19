@@ -7,6 +7,9 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -21,13 +24,17 @@ import lombok.Setter;
 @Table(name="shows")
 public class Show extends BaseModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @ManyToOne
+    @JoinColumn(name="movie_id")
     private Movie movie;
 
     private Language language;
     private Date startTime;
-    private Date endTime;
-    private Integer duration;
+    
     @ManyToOne
     @JoinColumn(name = "hall_id")
     private Hall hall;
@@ -37,9 +44,6 @@ public class Show extends BaseModel {
     @Enumerated(EnumType.STRING)
     private List<MovieFeature> movieFeatures=new ArrayList<>();
 
-    @Builder.Default
-    @OneToMany(mappedBy = "show")
-    private List<ShowSeat> showSeats=new ArrayList<>();
-
+    
 
 }

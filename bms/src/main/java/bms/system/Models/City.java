@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="city")
+@Table(name="cities")
 public class City extends BaseModel {
 
     private String name;
