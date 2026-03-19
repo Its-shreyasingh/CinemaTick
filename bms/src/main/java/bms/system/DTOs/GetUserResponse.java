@@ -11,8 +11,4 @@ public class GetUserResponse {
     private String email;
     private Long id;
 
-    public static GetUserResponse fromUser(User user)
-    {
-        return new GetUserResponse(user.getName(),user.getEmail(),user.getId());
-    }
 }
